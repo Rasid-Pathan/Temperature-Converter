@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0%;
+            box-sizing: border-box;
+            font-family: "Mulish",sans-serif;
+        }
+
+        body{
+            max-width: 100vw;
+            height: 100vh;
+            background: linear-gradient(rgba(224, 78, 78, 0.5),rgba(147, 147, 35, 0.5));
+            display: grid;
+            place-items: center;
+        }
+
+        form{
+            padding: 30px;
+            background: linear-gradient(rgba(121, 77, 77, 0.8),rgba(92, 65, 65, 0.8));
+            max-width: 400px;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+
+        label{
+            font-weight: 600;
+            color: white;
+        }
+
+        input{
+            width: 150px;
+            margin: 2px auto;
+            border: 0;
+            border-radius: 30px;
+            text-align: center;
+        }
+        select{
+            width: 150px;
+            margin: 2px auto;
+            border: 0;
+            text-align: center;
+            border-radius: 30px;
+        }
+
+        span{
+            font-size: medium;
+            color: white;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+        <form id="tempf" onsubmit="convert(); return false" >
+            <label for="temp">Enter a temperature you want to convert.</label>
+            <br />   <input type="number" name="temp" id="temp">
+                
+            <select name="Units" id="units">
+                <option value="cel">Celsius</option>
+                <option value="fah">Fahrenheit</option>
+            </select><br />
+            
+            <input type="submit" name="sub"> <br />
+            <span id="result"></span>
+
+        </form>
+    </div>
+
+    <script>
+
+        const convert = () => {
+
+            var result;
+            const temp = document.getElementById('temp').value;
+            const unit = document.getElementById('units');
+            const selected = units.options[unit.selectedIndex].value;
+            console.log(selected);
+            if( selected == 'cel'){
+                result = (temp-32)*(5/9);
+                document.getElementById('result').innerHTML= `=  ${result} Fahrenheit`;
+            }
+
+            if( selected == 'fah'){
+                result = temp*(9/5)+32;
+                document.getElementById('result').innerHTML=`= ${result} Celsius`;
+            }
+        }
+
+    </script>
+
+</body>
+</html>
