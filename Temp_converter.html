@@ -70,7 +70,7 @@
                 <option value="fah">Fahrenheit</option>
             </select><br />
             
-            <input type="submit" name="sub"> <br />
+            <input type="submit" name="sub" id=""> <br />
             <span id="result"></span>
 
         </form>
@@ -81,18 +81,22 @@
         const convert = () => {
 
             var result;
+            const form = document.getElementById('tempf');
             const temp = document.getElementById('temp').value;
             const unit = document.getElementById('units');
             const selected = units.options[unit.selectedIndex].value;
             console.log(selected);
+
             if( selected == 'cel'){
                 result = (temp-32)*(5/9);
-                document.getElementById('result').innerHTML= `=  ${result} Fahrenheit`;
+                result = result.toFixed(2);
+                document.getElementById('result').innerHTML= `${temp} °C =  ${result} °F`;
             }
-
+            
             if( selected == 'fah'){
                 result = temp*(9/5)+32;
-                document.getElementById('result').innerHTML=`= ${result} Celsius`;
+                result = result.toFixed(2);
+                document.getElementById('result').innerHTML=`${temp} °F = ${result} °C`;
             }
         }
 
